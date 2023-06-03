@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  oracle-db:
+    container_name: orable_db
+    image: container-registry.oracle.com/database/free
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    environment:
+      - ORACLE_PDB=ORCLPDB1
+      - ORACLE_PWD=db2
+
