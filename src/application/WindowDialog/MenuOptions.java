@@ -6,7 +6,7 @@ public enum MenuOptions {
     INTERACTION_AD_BY_USER(1, "1 – Interações com anúncios por usuário"),
     COUNT_AVG_PROPOSES_BY_PROPERTY(2, "2 – Quantidade e valor médio de propostas por imóvel"),
     INSERT_USER(3, "3 – Insere usuário no sistema"),
-    LIST_ALL_PROPERTIES_WITH_ACTIVE_AD(4, "4 – Listar todos imóveis com anúncios ativos"),
+    LIST_ALL_PROPERTIES_WITH_ACTIVE_AD(4, "4 – Atualizar tipo de perfil do usuário"),
     EXIT(5, "5 – Sair");
 
     private final int identifier;
