@@ -16,14 +16,6 @@ banco: FREEPDB1
 ```
 Considerações: O tópico acima vale para quem rodar o banco no container, do contrário, desconsiderar.
 
-### GERANDO SCHEMA E PERMISSÕES
-```
-CREATE USER AULA IDENTIFIED BY db2;
-
-GRANT CONNECT, RESOURCE TO AULA;
-
-GRANT CREATE TABLE, CREATE VIEW, CREATE PROCEDURE TO AULA;
-```
 ### Gerando tabelas
 Arquivo: sql-trabalho.sql
 
@@ -47,7 +39,7 @@ A separação ficou:
     * casos de uso.
     * views
   * Domain
-    * 
+    * entidades do sistema
     * port (interfaces)
   * Infraestructure 
     * Dao
