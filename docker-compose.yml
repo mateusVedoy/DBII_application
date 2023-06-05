@@ -8,6 +8,6 @@ services:
       - "1521:1521"
       - "5500:5500"
     environment:
-      - ORACLE_PDB=ORCLPDB1
+      - ORACLE_PDB=FREEPDB1
       - ORACLE_PWD=db2
 
