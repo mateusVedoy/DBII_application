@@ -7,6 +7,8 @@ public class User {
     private String cpf;
     private double income;
     private int profileType;
+    
+    public User() {};
 
     public User(int id, String active, String fullName, String cpf, double income, int profileType) {
         this.id = id;

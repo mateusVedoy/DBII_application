@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0eb01a76-5f9d-4a31-9923-9eec72764e4e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/WindowDialog/InteractiveMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/WindowDialog/InteractiveMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/WindowDialog/MenuOptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/WindowDialog/MenuOptions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/port/IDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/port/IDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/entity/ProposesAndAvgAmountByProperty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/entity/ProposesAndAvgAmountByProperty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/entity/UserInteractionsWithAd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/entity/UserInteractionsWithAd.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/infraestructure/dao/DBIIDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/infraestructure/dao/DBIIDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/infraestructure/database/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/infraestructure/database/ConnectionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infraestructure/database/SQLs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/infraestructure/database/SQLs.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,17 +35,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/umovme/Downloads/ojdbc11.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
-  }
-}</component>
   <component name="RunManager">
     <configuration name="DBIIApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DBIIApplication" />
@@ -94,7 +78,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/infraestructure/dao/DBIIDao.java</url>
-          <line>24</line>
+          <line>25</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

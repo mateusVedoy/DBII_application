@@ -11,6 +11,7 @@ public interface IDao {
     List<UserInteractionsWithAd> getUserInteractionsWithAdByUserId(int userId);
     ProposesAndAvgAmountByProperty getProposesAndAvgAmountByPropertyId(int propertyId);
     boolean insertUser(User user);
-    boolean updateProfileTypeFromUser(User user);
+    boolean updateProfileTypeFromUser(int id, int profileType);
+    User getById(int id);
     List<User> GetAllUsers();
 }

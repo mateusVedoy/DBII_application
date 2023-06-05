@@ -22,7 +22,8 @@ public enum SQLs {
             "  atualiza_tipoperfil(v_codigo, v_tipoperfil);\n" +
             "END;"),
 
-    SELECT_ALL_USERS("select * from usuario");
+    SELECT_ALL_USERS("select * from usuario"),
+    SELECT_USER_BY_ID("select * from usuario where usr_codigo=?");
 
     private final String sql;
 

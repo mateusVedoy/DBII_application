@@ -18,4 +18,12 @@ public class ProposesAndAvgAmountByProperty {
     public int getProposeAmountAvg() {
         return proposeAmountAvg;
     }
+
+	@Override
+	public String toString() {
+		return "ProposesAndAvgAmountByProperty [totalProposes=" + totalProposes + ", proposeAmountAvg="
+				+ proposeAmountAvg + "]";
+	}
+    
+    
 }

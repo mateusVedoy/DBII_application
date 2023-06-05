@@ -75,6 +75,7 @@ public class DBIIDao implements IDao {
             statement.setString(2, user.getCpf());
             statement.setDouble(3, user.getIncome());
             statement.setInt(4, user.getProfileType());
+            statement.execute();
             return true;
         }catch (SQLException e) {
             System.out.println("Exceção SQL: "+e.getMessage());
@@ -85,11 +86,14 @@ public class DBIIDao implements IDao {
     }
 
     @Override
-    public boolean updateProfileTypeFromUser(User user) {
+    public boolean updateProfileTypeFromUser(int id, int profileType) {
         try(Connection conn = new ConnectionFactory().getConnection();
             PreparedStatement statement = conn.prepareStatement(SQLs.UPDATE_USER_PROFILE_TYPE.getSql())){
-            statement.setInt(1, user.getId());
-            statement.setInt(2, user.getProfileType());
+            statement.setInt(1, id);
+            statement.setInt(2, profileType);
+            System.out.println("user.getId(): "+id);
+            System.out.println("user.getProfileType(): "+profileType);
+            statement.execute();
             return true;
         }catch (SQLException e) {
             System.out.println("Exceção SQL: "+e.getMessage());
@@ -125,5 +129,32 @@ public class DBIIDao implements IDao {
         }
 
         return null;
+    }
+    
+    @Override
+    public User getById(int id) {
+    	User u = null;
+    	try(Connection conn = new ConnectionFactory().getConnection();
+                PreparedStatement statement = conn.prepareStatement(SQLs.SELECT_USER_BY_ID.getSql())
+            ){
+                statement.setInt(1, id);
+                ResultSet resultSet = statement.executeQuery();
+                if(resultSet.next()){
+                	u = new User(id, 
+                      resultSet.getString("usr_ativo"),
+                      resultSet.getString("usr_nomecompleto"),
+                      resultSet.getString("usr_cpf"),
+                      resultSet.getDouble("usr_renda"),
+                      resultSet.getInt("usr_tipoperfil")
+                      );
+                }
+                return u;
+            }catch (SQLException e) {
+                System.out.println("Exceção SQL: "+e.getMessage());
+            } catch(Exception e) {
+                System.out.println("Exeção: "+e.getMessage());
+            }
+
+            return null;
     }
 }

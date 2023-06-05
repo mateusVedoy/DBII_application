@@ -8,13 +8,13 @@ public class InsertUser extends UseCaseBase{
 
     @Override
     public void execute() {
-        messageWindow.messageDialog("Seu novo usuário terá as seguintes inforações: \nNome completo: \"Virgulina Das Ventanias\" \nCPF:\"123.456.789-10\" \nRenda: 4.300 Mirréis \nPerfil:\"Locador\"");
+        messageWindow.messageDialog("Seu novo usuário terá as seguintes inforações: \nNome completo: \"Fulaninho Serra\" \nCPF:\"999.456.789-10\" \nRenda: 5.300 Mirréis \nPerfil:\"Locador\"");
         boolean response = dao.insertUser(
                 new User(
                         "1",
-                        "Virgulina Das Ventanias",
-                        "123.456.789-10",
-                        4.300,
+                        "Beltraninho Serra",
+                        "987.456.789-10",
+                        5.300,
                         1
                 )
         );

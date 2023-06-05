@@ -40,4 +40,12 @@ public class UserInteractionsWithAd {
     public String getPropertyDescription() {
         return propertyDescription;
     }
+
+	@Override
+	public String toString() {
+		return "UserInteractionsWithAd [codeAd=" + codeAd + ", postDate=" + postDate + ", statusAd=" + statusAd
+				+ ", codeProperty=" + codeProperty + ", propertyDescription=" + propertyDescription + "]";
+	}
+    
+    
 }
