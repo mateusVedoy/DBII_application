@@ -1,6 +1,7 @@
 package infraestructure.dao;
 
 import domain.entity.ProposesAndAvgAmountByProperty;
+import domain.entity.User;
 import domain.entity.UserInteractionsWithAd;
 import domain.port.IDao;
 import infraestructure.database.ConnectionFactory;
@@ -20,7 +21,7 @@ public class DBIIDao implements IDao {
         try(Connection conn = new ConnectionFactory().getConnection();
                 PreparedStatement statement = conn.prepareStatement(SQLs.INTERACTION_AD_BY_USER.getSql())
                 ){
-            statement.setInt(1, userId);
+            statement.setString(1, String.valueOf(userId));
             ResultSet resultSet = statement.executeQuery();
             while(resultSet.next()){
                 list.add(
@@ -64,5 +65,65 @@ public class DBIIDao implements IDao {
         }
 
         return p;
+    }
+
+    @Override
+    public boolean insertUser(User user) {
+        try(Connection conn = new ConnectionFactory().getConnection();
+            PreparedStatement statement = conn.prepareStatement(SQLs.INSERT_USER.getSql())){
+            statement.setString(1, user.getFullName());
+            statement.setString(2, user.getCpf());
+            statement.setDouble(3, user.getIncome());
+            statement.setInt(4, user.getProfileType());
+            return true;
+        }catch (SQLException e) {
+            System.out.println("Exceção SQL: "+e.getMessage());
+        } catch(Exception e) {
+            System.out.println("Exeção: "+e.getMessage());
+        }
+        return false;
+    }
+
+    @Override
+    public boolean updateProfileTypeFromUser(User user) {
+        try(Connection conn = new ConnectionFactory().getConnection();
+            PreparedStatement statement = conn.prepareStatement(SQLs.UPDATE_USER_PROFILE_TYPE.getSql())){
+            statement.setInt(1, user.getId());
+            statement.setInt(2, user.getProfileType());
+            return true;
+        }catch (SQLException e) {
+            System.out.println("Exceção SQL: "+e.getMessage());
+        } catch(Exception e) {
+            System.out.println("Exeção: "+e.getMessage());
+        }
+        return false;
+    }
+
+    @Override
+    public List<User> GetAllUsers() {
+        try(Connection conn = new ConnectionFactory().getConnection();
+            PreparedStatement statement = conn.prepareStatement(SQLs.SELECT_ALL_USERS.getSql())){
+            List<User> users = new ArrayList<>();
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next()){
+                users.add(
+                        new User(
+                                resultSet.getInt("usr_codigo"),
+                                resultSet.getString("usr_ativo"),
+                                resultSet.getString("usr_nomecompleto"),
+                                resultSet.getString("usr_cpf"),
+                                resultSet.getDouble("usr_renda"),
+                                resultSet.getInt("usr_tipoperfil")
+                        )
+                );
+            }
+            return users;
+        }catch (SQLException e) {
+            System.out.println("Exceção SQL: "+e.getMessage());
+        } catch(Exception e) {
+            System.out.println("Exceção: "+e.getMessage());
+        }
+
+        return null;
     }
 }
