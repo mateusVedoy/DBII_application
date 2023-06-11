@@ -11,7 +11,7 @@ public class UpdateProfileTypeFromUser extends UseCaseBase {
 	@Override
 	public void execute() {
 		int userId = parseInt(messageWindow.messageInputDialog("Digite o Id do usuário a ser alterado: "));
-		User user = dao.getById(userId);
+		User user = dao.getUserById(userId);
 		if (user == null) {
 			messageWindow.messageDialog("Não há usuários com esse Id");
 			return;

@@ -1,5 +1,7 @@
 package application.useCase;
 
+import static java.lang.Integer.parseInt;
+
 import domain.entity.User;
 
 public class InsertUser extends UseCaseBase{
@@ -8,24 +10,25 @@ public class InsertUser extends UseCaseBase{
 
     @Override
     public void execute() {
-        messageWindow.messageDialog("Seu novo usuário terá as seguintes inforações: \nNome completo: \"Fulaninho Serra\" \nCPF:\"999.456.789-10\" \nRenda: 5.300 Mirréis \nPerfil:\"Locador\"");
-        boolean response = dao.insertUser(
-                new User(
-                        "1",
-                        "Beltraninho Serra",
-                        "987.456.789-10",
-                        5.300,
-                        1
-                )
-        );
-        if(response)
-            successResponse();
-        else
-            messageWindow.messageDialog("Vixe! Deu errado isso aí :(");
+    	String name = messageWindow.messageInputDialog("Digite o nome do usuário: ");
+    	String cpf = messageWindow.messageInputDialog("Digite o CPF: ");
+    	String formatCpf = cpf.replaceAll("[^0-9]", "");
+    	double income = Double.parseDouble(messageWindow.messageInputDialog("Digite a renda: "));
+		int profileId = parseInt(messageWindow.messageInputDialog("Perfil: (1 - Locatário, 2 - Locador)"));
+		if (profileId < 1 || profileId > 2) {
+			messageWindow.messageDialog("Perfil inválido");
+			return;
+		}
+        String response = dao.insertUser(
+        		new User("1", name, formatCpf, income, profileId)
+        );        
+
+        responseMessage(response);
     }
 
-    private void successResponse() {
-        messageWindow.messageDialog("Usuário cadastrado com sucesso\n");
-        selectAllUsers.execute();
+    private void responseMessage(String response) {
+        messageWindow.messageDialog(response);
+        if (response.contains("sucesso"))
+            selectAllUsers.execute();
     }
 }
